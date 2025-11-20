@@ -78,3 +78,23 @@ def show_slice_with_mask_side_by_side(
     plt.title(f"Segmentation Mask {idx} (axis={axis})")
 
     plt.show()
+
+def show_slice_of_all_modalities(
+    volumes: dict[str, MRIVolume],
+    axis: int = 2,
+    index: int | None = None,
+    cmap="gray"
+):
+    """Display slices from multiple MRI modalities side by side."""
+    n_modalities = len(volumes)
+    plt.figure(figsize=(5 * n_modalities, 5))
+
+    for i, (modality, volume) in enumerate(volumes.items()):
+        img, idx = _get_slice(volume.data, axis, index)
+
+        plt.subplot(1, n_modalities, i + 1)
+        plt.imshow(img, cmap=cmap, origin="lower")
+        plt.axis("off")
+        plt.title(f"{modality} Slice {idx} (axis={axis})")
+
+    plt.show()

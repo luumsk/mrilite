@@ -1,6 +1,11 @@
 from .io import load_nifti, save_nifti, MRIVolume
 from .preprocess import zscore
-from .viz import show_slice, show_slice_with_mask_overlay, show_slice_with_mask_side_by_side
+from .viz import (
+    show_slice,
+    show_slice_with_mask_overlay,
+    show_slice_with_mask_side_by_side,
+    show_slice_of_all_modalities
+)
 
 __all__ = [
     "MRIVolume",
@@ -9,5 +14,6 @@ __all__ = [
     "zscore",
     "show_slice",
     "show_slice_with_mask_overlay",
-    "show_slice_with_mask_side_by_side"
+    "show_slice_with_mask_side_by_side",
+    "show_slice_of_all_modalities"
 ]
