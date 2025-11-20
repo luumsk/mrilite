@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from .io import MRIVolume
+from .volume import MRIVolume
 
 def _get_slice(volume: np.ndarray,
                axis: int,

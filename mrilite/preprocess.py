@@ -1,5 +1,5 @@
 import numpy as np
-from .io import MRIVolume
+from .volume import MRIVolume
 
 def zscore(volume: MRIVolume) -> MRIVolume:
     """Apply z-score normalization to MRI intensities."""

@@ -1,4 +1,5 @@
-from .io import load_nifti, save_nifti, MRIVolume
+from .volume import MRIVolume
+from .io import load_nifti, save_nifti
 from .preprocess import zscore
 from .viz import (
     show_slice,

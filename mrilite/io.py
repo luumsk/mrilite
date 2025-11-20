@@ -1,17 +1,7 @@
 import nibabel as nib
 import numpy as np
-from dataclasses import dataclass
+from .volume import MRIVolume
 
-@dataclass
-class MRIVolume:
-    """Basic container for MRI volume and metadata."""
-    data: np.ndarray
-    affine: np.ndarray | None = None
-    header: nib.Nifti1Header | None = None
-    voxel_sizes: np.ndarray | None = None
-    orientation: np.ndarray | None = None
-    axcodes: str | None = None
-    path: str | None = None
 
 def load_nifti(path: str) -> MRIVolume:
     """Load a NIfTI file and return an MRIVolume."""
