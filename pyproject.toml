@@ -2,6 +2,7 @@
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
+
 [project]
 name = "mrilite"
 version = "0.1.0"
@@ -21,5 +22,22 @@ dependencies = [
     "matplotlib"
 ]
 
+keywords = ["mri", "medical imaging", "nifti", "visualization", "medical ai"]
+
+
 [project.urls]
 Homepage = "https://github.com/luumsk/mrilite"
+Repository = "https://github.com/luumsk/mrilite"
+Issues = "https://github.com/luumsk/mrilite/issues"
+
+
+# ------------------------------
+# Setuptools Package Discovery
+# ------------------------------
+[tool.setuptools]
+packages = ["mrilite"]
+
+# Alternative automatic finder (works too):
+# [tool.setuptools.packages.find]
+# where = ["."]
+# include = ["mrilite"]
