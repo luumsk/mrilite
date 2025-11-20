@@ -9,7 +9,7 @@ class MRIVolume:
     affine: np.ndarray | None = None
     header: nib.Nifti1Header | None = None
     voxel_sizes: np.ndarray | None = None
-    orientation: np.array | None = None
+    orientation: np.ndarray | None = None
     axcodes: str | None = None
     path: str | None = None
 

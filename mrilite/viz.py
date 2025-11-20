@@ -23,14 +23,14 @@ def show_slice(volume: MRIVolume,
     img, idx = _get_slice(volume.data, axis, index)
 
     plt.figure(figsize=(5, 5))
-    plt.imshow(img.T, cmap=cmap, origin="lower")
+    plt.imshow(img, cmap=cmap, origin="lower")
     plt.axis("off")
     plt.title(f"Slice {idx} (axis={axis})")
     plt.show()
 
-def show_slice_with_overlay(
+def show_slice_with_mask_overlay(
     volume: MRIVolume,
-    seg,
+    seg: MRIVolume,
     axis: int = 2,
     index: int | None = None,
     alpha: float = 0.3,
@@ -44,10 +44,37 @@ def show_slice_with_overlay(
     plt.figure(figsize=(5, 5))
     plt.imshow(img, cmap="gray", origin="lower")
 
-    rgba = np.zeros(mask.T.shape + (4,))
-    rgba[mask.T] = [1, 0, 0, alpha]
+    rgba = np.zeros(mask.shape + (4,))
+    rgba[mask] = [1, 0, 0, alpha]
 
     plt.imshow(rgba, origin="lower")
     plt.axis("off")
     plt.title(f"Slice {idx} (axis={axis})")
+    plt.show()
+
+
+def show_slice_with_mask_side_by_side(
+    volume: MRIVolume,
+    seg: MRIVolume,
+    axis: int = 2,
+    index: int | None = None,
+):
+    """Display MRI slice and segmentation mask side by side."""
+    seg_data = seg.data if isinstance(seg, MRIVolume) else seg
+
+    img, idx = _get_slice(volume.data, axis, index)
+    mask, _ = _get_slice(seg_data > 0, axis, index)
+
+    plt.figure(figsize=(10, 5))
+
+    plt.subplot(1, 2, 1)
+    plt.imshow(img, cmap="gray", origin="lower")
+    plt.axis("off")
+    plt.title(f"MRI Slice {idx} (axis={axis})")
+
+    plt.subplot(1, 2, 2)
+    plt.imshow(mask, cmap="gray", origin="lower")
+    plt.axis("off")
+    plt.title(f"Segmentation Mask {idx} (axis={axis})")
+
     plt.show()
