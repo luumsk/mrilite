@@ -7,7 +7,7 @@ name = "mrilite"
 version = "0.1.0"
 description = "A lightweight toolkit for loading, preprocessing, and visualizing 3D MRI volumes."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 
 authors = [
     { name = "Luu Minh Sao Khue" }
