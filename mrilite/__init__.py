@@ -3,9 +3,9 @@ from .io import load_nifti, save_nifti
 from .preprocess import zscore
 from .viz import (
     show_slice,
-    show_slice_with_mask_overlay,
-    show_slice_with_mask_side_by_side,
-    show_slice_of_all_modalities
+    show_overlay,
+    show_slice_with_mask,
+    show_modalities
 )
 
 __all__ = [
@@ -14,7 +14,7 @@ __all__ = [
     "save_nifti",
     "zscore",
     "show_slice",
-    "show_slice_with_mask_overlay",
-    "show_slice_with_mask_side_by_side",
-    "show_slice_of_all_modalities"
+    "show_overlay",
+    "show_slice_with_mask",
+    "show_modalities"
 ]
