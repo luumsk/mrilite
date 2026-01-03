@@ -1,6 +1,7 @@
 from .volume import MRIVolume
 from .io import load_nifti, save_nifti
 from .preprocess import zscore
+from .analysis import connected_components
 from .viz import (
     show_slice,
     show_overlay,
@@ -16,5 +17,6 @@ __all__ = [
     "show_slice",
     "show_overlay",
     "show_slice_with_mask",
-    "show_modalities"
+    "show_modalities",
+    "connected_components",
 ]
