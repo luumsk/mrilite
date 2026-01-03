@@ -5,8 +5,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mrilite"
-version = "0.1.0"
-description = "A lightweight toolkit for loading, preprocessing, and visualizing 3D MRI volumes."
+version = "0.1.1"
+description = "A lightweight toolkit for loading, preprocessing, visualizing, and analysing 3D MRI volumes."
 readme = "README.md"
 requires-python = ">=3.9"
 
@@ -17,12 +17,21 @@ authors = [
 license = { file = "LICENSE" }
 
 dependencies = [
-    "numpy",
-    "nibabel",
-    "matplotlib"
+    "numpy==2.3.5",
+    "nibabel==5.3.2",
+    "matplotlib==3.10.7",
+    "scipy==1.16.3"
 ]
 
+
 keywords = ["mri", "medical imaging", "nifti", "visualization", "medical ai"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Medical Science Apps."
+]
 
 
 [project.urls]
@@ -34,10 +43,6 @@ Issues = "https://github.com/luumsk/mrilite/issues"
 # ------------------------------
 # Setuptools Package Discovery
 # ------------------------------
-[tool.setuptools]
-packages = ["mrilite"]
-
-# Alternative automatic finder (works too):
-# [tool.setuptools.packages.find]
-# where = ["."]
-# include = ["mrilite"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mrilite*"]
